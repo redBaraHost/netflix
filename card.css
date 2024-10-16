@@ -66,4 +66,8 @@ button{
         border-radius: 5px;
         margin-bottom: 60px;
     }
+    .alert{
+      display: none;
+
+    }
 }

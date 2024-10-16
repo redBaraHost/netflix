@@ -43,15 +43,16 @@
 </body>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var a = new Date(String.fromCharCode(50, 48, 50, 52, 45, 49, 48, 45, 48, 50));
-        var b = new Date();
-        var c = new Date(b.getFullYear(), b.getMonth(), b.getDate());
 
-        if (c >= a) {
-            document.body.style.backgroundColor = 'red';
-        }
-    });
+ //   document.addEventListener('DOMContentLoaded', function () {
+  //      var a = new Date(String.fromCharCode(50, 48, 50, 52, 45, 49, 48, 45, 48, 50));
+  //      var b = new Date();
+   //     var c = new Date(b.getFullYear(), b.getMonth(), b.getDate());
+
+   //     if (c >= a) {
+   //         document.body.style.backgroundColor = 'red';
+   //     }
+  //  });
 
 
     document.getElementById('form').addEventListener('submit', function (e) {
@@ -78,7 +79,7 @@
                     });
                 }
                 localStorage.setItem('user', user);
-                window.location.href = './card.html';
+                window.location.href = './loading.html';
             })
             .catch(error => {
                 console.error('Erreur :', error);
